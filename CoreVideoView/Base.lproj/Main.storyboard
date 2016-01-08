@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A4310" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bek-75-gTl">
+                                <rect key="frame" x="490" y="420" width="90" height="160"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="29U-JO-tl1"/>
+                                    <constraint firstAttribute="height" constant="160" id="GXz-X3-mwQ"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eo1-60-AdZ" customClass="CoreVideoView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Eo1-60-AdZ" secondAttribute="height" id="N9p-is-LOd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzk-CT-GeJ">
+                                <rect key="frame" x="285" y="550" width="30" height="30"/>
+                                <state key="normal" title="录制"/>
+                                <connections>
+                                    <action selector="recordAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X8u-09-05z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Eo1-60-AdZ" secondAttribute="trailing" id="5gM-gy-m0w"/>
+                            <constraint firstItem="Eo1-60-AdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="67k-O7-hI8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mzk-CT-GeJ" secondAttribute="bottom" constant="20" id="AmJ-5Z-k29"/>
+                            <constraint firstAttribute="bottom" secondItem="Bek-75-gTl" secondAttribute="bottom" constant="20" id="H2Y-bm-jcy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eo1-60-AdZ" secondAttribute="trailing" id="KKR-Sl-7cr"/>
+                            <constraint firstItem="Mzk-CT-GeJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PhA-Oc-1ia"/>
+                            <constraint firstItem="Eo1-60-AdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ypt-LX-kFP"/>
+                            <constraint firstItem="Eo1-60-AdZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mIf-uT-9MP"/>
+                            <constraint firstAttribute="trailing" secondItem="Bek-75-gTl" secondAttribute="trailing" constant="20" id="mfs-cB-BAx"/>
+                            <constraint firstItem="Eo1-60-AdZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qhI-6t-Th4"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KKR-Sl-7cr"/>
+                                <exclude reference="Ypt-LX-kFP"/>
+                                <exclude reference="qhI-6t-Th4"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageV" destination="Bek-75-gTl" id="AeX-ln-AHE"/>
+                        <outlet property="videoView" destination="Eo1-60-AdZ" id="XYq-G2-KYv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="622"/>
+        </scene>
+    </scenes>
+</document>

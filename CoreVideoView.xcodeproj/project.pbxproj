@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89F743991C3F66C600A918D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F743981C3F66C600A918D6 /* main.m */; };
+		89F7439C1C3F66C600A918D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7439B1C3F66C600A918D6 /* AppDelegate.m */; };
+		89F7439F1C3F66C600A918D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7439E1C3F66C600A918D6 /* ViewController.m */; };
+		89F743A21C3F66C600A918D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F743A01C3F66C600A918D6 /* Main.storyboard */; };
+		89F743A41C3F66C600A918D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F743A31C3F66C600A918D6 /* Assets.xcassets */; };
+		89F743A71C3F66C600A918D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F743A51C3F66C600A918D6 /* LaunchScreen.storyboard */; };
+		89F743B61C3F675C00A918D6 /* CoreVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F743B11C3F675C00A918D6 /* CoreVideoModel.m */; };
+		89F743B71C3F675C00A918D6 /* CoreVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F743B31C3F675C00A918D6 /* CoreVideoView.m */; };
+		89F743B81C3F675C00A918D6 /* NSString+CoreVideoFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F743B51C3F675C00A918D6 /* NSString+CoreVideoFile.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		89F743941C3F66C600A918D6 /* CoreVideoView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreVideoView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F743981C3F66C600A918D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89F7439A1C3F66C600A918D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		89F7439B1C3F66C600A918D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		89F7439D1C3F66C600A918D6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		89F7439E1C3F66C600A918D6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		89F743A11C3F66C600A918D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89F743A31C3F66C600A918D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89F743A61C3F66C600A918D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89F743A81C3F66C600A918D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89F743B01C3F675C00A918D6 /* CoreVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreVideoModel.h; sourceTree = "<group>"; };
+		89F743B11C3F675C00A918D6 /* CoreVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreVideoModel.m; sourceTree = "<group>"; };
+		89F743B21C3F675C00A918D6 /* CoreVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreVideoView.h; sourceTree = "<group>"; };
+		89F743B31C3F675C00A918D6 /* CoreVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreVideoView.m; sourceTree = "<group>"; };
+		89F743B41C3F675C00A918D6 /* NSString+CoreVideoFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreVideoFile.h"; sourceTree = "<group>"; };
+		89F743B51C3F675C00A918D6 /* NSString+CoreVideoFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreVideoFile.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89F743911C3F66C600A918D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89F7438B1C3F66C600A918D6 = {
+			isa = PBXGroup;
+			children = (
+				89F743961C3F66C600A918D6 /* CoreVideoView */,
+				89F743951C3F66C600A918D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89F743951C3F66C600A918D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89F743941C3F66C600A918D6 /* CoreVideoView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89F743961C3F66C600A918D6 /* CoreVideoView */ = {
+			isa = PBXGroup;
+			children = (
+				89F743AE1C3F66DB00A918D6 /* CoreVideoView */,
+				89F7439A1C3F66C600A918D6 /* AppDelegate.h */,
+				89F7439B1C3F66C600A918D6 /* AppDelegate.m */,
+				89F7439D1C3F66C600A918D6 /* ViewController.h */,
+				89F7439E1C3F66C600A918D6 /* ViewController.m */,
+				89F743A01C3F66C600A918D6 /* Main.storyboard */,
+				89F743A31C3F66C600A918D6 /* Assets.xcassets */,
+				89F743A51C3F66C600A918D6 /* LaunchScreen.storyboard */,
+				89F743A81C3F66C600A918D6 /* Info.plist */,
+				89F743971C3F66C600A918D6 /* Supporting Files */,
+			);
+			path = CoreVideoView;
+			sourceTree = "<group>";
+		};
+		89F743971C3F66C600A918D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89F743981C3F66C600A918D6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89F743AE1C3F66DB00A918D6 /* CoreVideoView */ = {
+			isa = PBXGroup;
+			children = (
+				89F743B21C3F675C00A918D6 /* CoreVideoView.h */,
+				89F743B31C3F675C00A918D6 /* CoreVideoView.m */,
+				89F743B01C3F675C00A918D6 /* CoreVideoModel.h */,
+				89F743B11C3F675C00A918D6 /* CoreVideoModel.m */,
+				89F743B41C3F675C00A918D6 /* NSString+CoreVideoFile.h */,
+				89F743B51C3F675C00A918D6 /* NSString+CoreVideoFile.m */,
+			);
+			path = CoreVideoView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89F743931C3F66C600A918D6 /* CoreVideoView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89F743AB1C3F66C600A918D6 /* Build configuration list for PBXNativeTarget "CoreVideoView" */;
+			buildPhases = (
+				89F743901C3F66C600A918D6 /* Sources */,
+				89F743911C3F66C600A918D6 /* Frameworks */,
+				89F743921C3F66C600A918D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreVideoView;
+			productName = CoreVideoView;
+			productReference = 89F743941C3F66C600A918D6 /* CoreVideoView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89F7438C1C3F66C600A918D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "冯成林";
+				TargetAttributes = {
+					89F743931C3F66C600A918D6 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 89F7438F1C3F66C600A918D6 /* Build configuration list for PBXProject "CoreVideoView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89F7438B1C3F66C600A918D6;
+			productRefGroup = 89F743951C3F66C600A918D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89F743931C3F66C600A918D6 /* CoreVideoView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89F743921C3F66C600A918D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F743A71C3F66C600A918D6 /* LaunchScreen.storyboard in Resources */,
+				89F743A41C3F66C600A918D6 /* Assets.xcassets in Resources */,
+				89F743A21C3F66C600A918D6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89F743901C3F66C600A918D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F743B61C3F675C00A918D6 /* CoreVideoModel.m in Sources */,
+				89F7439F1C3F66C600A918D6 /* ViewController.m in Sources */,
+				89F7439C1C3F66C600A918D6 /* AppDelegate.m in Sources */,
+				89F743991C3F66C600A918D6 /* main.m in Sources */,
+				89F743B81C3F675C00A918D6 /* NSString+CoreVideoFile.m in Sources */,
+				89F743B71C3F675C00A918D6 /* CoreVideoView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		89F743A01C3F66C600A918D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89F743A11C3F66C600A918D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89F743A51C3F66C600A918D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89F743A61C3F66C600A918D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89F743A91C3F66C600A918D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		89F743AA1C3F66C600A918D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89F743AC1C3F66C600A918D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CoreVideoView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShiDian.CoreVideoView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		89F743AD1C3F66C600A918D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CoreVideoView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShiDian.CoreVideoView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89F7438F1C3F66C600A918D6 /* Build configuration list for PBXProject "CoreVideoView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89F743A91C3F66C600A918D6 /* Debug */,
+				89F743AA1C3F66C600A918D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89F743AB1C3F66C600A918D6 /* Build configuration list for PBXNativeTarget "CoreVideoView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89F743AC1C3F66C600A918D6 /* Debug */,
+				89F743AD1C3F66C600A918D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89F7438C1C3F66C600A918D6 /* Project object */;
+}
