@@ -41,25 +41,36 @@
                                     <action selector="recordAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X8u-09-05z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW9-gJ-fHM">
+                                <rect key="frame" x="20" y="550" width="45" height="30"/>
+                                <state key="normal" title="存相册"/>
+                                <connections>
+                                    <action selector="saveAlbumAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jY0-k1-C9z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Eo1-60-AdZ" secondAttribute="trailing" id="5gM-gy-m0w"/>
+                            <constraint firstItem="Mzk-CT-GeJ" firstAttribute="top" secondItem="lW9-gJ-fHM" secondAttribute="bottom" constant="20" id="5oc-9P-twj"/>
                             <constraint firstItem="Eo1-60-AdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="67k-O7-hI8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mzk-CT-GeJ" secondAttribute="bottom" constant="20" id="AmJ-5Z-k29"/>
                             <constraint firstAttribute="bottom" secondItem="Bek-75-gTl" secondAttribute="bottom" constant="20" id="H2Y-bm-jcy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Eo1-60-AdZ" secondAttribute="trailing" id="KKR-Sl-7cr"/>
                             <constraint firstItem="Mzk-CT-GeJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PhA-Oc-1ia"/>
                             <constraint firstItem="Eo1-60-AdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ypt-LX-kFP"/>
+                            <constraint firstItem="lW9-gJ-fHM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fPH-vC-vFu"/>
                             <constraint firstItem="Eo1-60-AdZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mIf-uT-9MP"/>
                             <constraint firstAttribute="trailing" secondItem="Bek-75-gTl" secondAttribute="trailing" constant="20" id="mfs-cB-BAx"/>
                             <constraint firstItem="Eo1-60-AdZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qhI-6t-Th4"/>
+                            <constraint firstAttribute="bottom" secondItem="lW9-gJ-fHM" secondAttribute="bottom" constant="20" id="sa8-dy-Fsu"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="KKR-Sl-7cr"/>
                                 <exclude reference="Ypt-LX-kFP"/>
                                 <exclude reference="qhI-6t-Th4"/>
+                                <exclude reference="5oc-9P-twj"/>
                             </mask>
                         </variation>
                     </view>

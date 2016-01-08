@@ -17,6 +17,7 @@
 
 @property (nonatomic,copy) NSString *CoreVideoCacheFolderPath;
 
+@property (nonatomic,copy) void(^SaveAblumResBlock)(NSError *error);
 
 @end
 
@@ -368,5 +369,25 @@
     return image;
 }
 
+/** 保存到系统相册 */
+-(void)save_MOV_ToAlbumWithCompleteBlock:(void(^)(NSError *error))completeBlock{
+    self.SaveAblumResBlock = completeBlock;
+    [self saveAlbum:self.videoFilePath_MOV];
+}
+
+/** 保存到系统相册 */
+-(void)save_MP4_ToAlbumWithCompleteBlock:(void(^)(NSError *error))completeBlock{
+    self.SaveAblumResBlock = completeBlock;
+    [self saveAlbum:self.videoFilePath_MP4];
+}
+
+-(void)saveAlbum:(NSString *)videoURL{
+    UISaveVideoAtPathToSavedPhotosAlbum(videoURL, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+}
+
+
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo: (void *) contextInfo {
+    if(self.SaveAblumResBlock != nil) self.SaveAblumResBlock(error);
+}
 
 @end

@@ -69,4 +69,10 @@
 /** 获取视频截图 */
 -(UIImage *)getVideoImage_MP4;
 
+/** 保存到系统相册 */
+-(void)save_MOV_ToAlbumWithCompleteBlock:(void(^)(NSError *error))completeBlock;
+
+/** 保存到系统相册 */
+-(void)save_MP4_ToAlbumWithCompleteBlock:(void(^)(NSError *error))completeBlock;
+
 @end

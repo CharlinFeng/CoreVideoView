@@ -35,6 +35,22 @@
     [self.videoView startRecord];
 }
 
+- (IBAction)saveAlbumAction:(id)sender {
+    
+    [self.videoView save_MP4_ToAlbumWithCompleteBlock:^(NSError *error) {
+        
+        if(error == nil){
+        
+            NSLog(@"存入成功");
+        }else{
+        
+            NSLog(@"存入失败:%@",error.localizedDescription);
+        }
+        
+    }];
+}
+
+
 
 
 -(void)coreViewDidStartRecord{
@@ -72,5 +88,7 @@
     NSLog(@"取消录制");
     
 }
+
+
 
 @end
