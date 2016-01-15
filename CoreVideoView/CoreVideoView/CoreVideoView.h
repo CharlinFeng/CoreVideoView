@@ -16,6 +16,7 @@
 
 - (void)coreViewDidStartRecord;
 - (void)coreViewDidCancelRecord;
+- (void)coreViewRecordIsTooShort;
 - (void)coreView:(CoreVideoView *)coreView didFinishRecordWithMOVFilePath:(NSString *)movFilePath;
 
 @end
@@ -26,8 +27,11 @@
 @property (nonatomic, strong) UILabel *promptLable;
 @property (nonatomic, weak) id<CoreVideoViewDelegate> delegate;
 
-/** 录制时长 */
-@property (nonatomic,assign) NSInteger duration;
+/** 总共录制时长 */
+@property (nonatomic,assign) NSInteger duration_Total;
+
+/** 最少录制时长 */
+@property (nonatomic,assign) NSInteger duration_Least;
 
 /** 录制视频路径: MOV格式 */
 @property (nonatomic, copy) NSString *videoFilePath_MOV;
@@ -38,12 +42,20 @@
 /** 视频录制模型 */
 @property (nonatomic, strong) CoreVideoModel *videoModel;
 
+/** 用户真实的录制时长 */
+@property (nonatomic,assign) NSTimeInterval recordTime_real;
 
 /** 准备 */
 -(void)prepare;
 
 /** 开始录制 */
 -(void)startRecord;
+
+/** 取消录制 */
+- (void)cancelRecord;
+
+/** 完成录制 */
+- (void)finishRecord;
 
 /** 删除缓存 */
 -(NSError *)deleteCaches;
@@ -55,7 +67,7 @@
 -(NSError *)deleteMP4File;
 
 
--(void)convertMP4WithCompleteBlock:(void(^)(NSString *mp4FilePath))completeBlock;
+-(void)convertMP4WithCompleteBlock:(void(^)(NSString *mp4FilePath))completeBlock errorBlock:(void(^)())errorBlock;
 
 /** MOV文件大小 */
 -(CGFloat)getVideoFileSize_MOV;

@@ -19,6 +19,11 @@
 
 @property (nonatomic,copy) void(^SaveAblumResBlock)(NSError *error);
 
+@property (nonatomic,assign) BOOL isRecord;
+
+@property (nonatomic,assign) NSTimeInterval beginTime;
+
+
 @end
 
 @implementation CoreVideoView
@@ -64,7 +69,8 @@
     self.timeLineView.backgroundColor = [UIColor greenColor];
     [self addSubview:self.timeLineView];
     
-    self.duration = 8;
+    self.duration_Total = 8;
+    self.duration_Least = 4;
 }
 
 
@@ -72,26 +78,33 @@
 /** 开始录制 */
 -(void)startRecord{
     
+    if (self.isRecord) return;
+    
+    [self.timeLineView.layer removeAllAnimations];
+    self.timeLineView.hidden = NO;
+    
+    self.isRecord = YES;
+    
     //删除本地文件
     NSError *error = [self deleteCaches];
     
     if(error == nil){
-    
+        
         //清空路径
         self.CoreVideoCacheFolderPath = nil;
         _videoFilePath_MOV = nil;
         _videoFilePath_MP4 = nil;
-
+        
     }else{
-    
+        
         NSLog(@"删除错误：%@",error.localizedDescription);
         
         return;
     }
-
-
+    
+    
     AVAudioSession *avSession = [AVAudioSession sharedInstance];
- 
+    
     [avSession requestRecordPermission:^(BOOL available) {
         
         if (available) {
@@ -113,7 +126,7 @@
     CGSize size = self.bounds.size;
     CGFloat px = size.width/2;
     CGFloat py = size.height - frame.size.height / 2;
-    [UIView animateWithDuration:self.duration animations:^{
+    [UIView animateWithDuration:self.duration_Total animations:^{
         
         self.timeLineView.center = CGPointMake(px, py);
         self.timeLineView.bounds = frame;
@@ -125,15 +138,73 @@
         self.timeLineView.frame = CGRectZero;
         self.timeLineView.hidden = YES;
     }];
-
+    
     
     [self.videoModel beginRecordSaveToTheDocumentFilePath:self.videoFilePath_MOV];
+    
+    //记录开始时间
+    self.beginTime = [NSDate date].timeIntervalSince1970;
     
     if ([self.delegate respondsToSelector:@selector(coreViewDidStartRecord)])[self.delegate coreViewDidStartRecord];
 }
 
 
 
+- (void)finishRecord {
+    
+    //结束时间
+    
+    NSTimeInterval now = [NSDate date].timeIntervalSince1970;
+    
+    NSTimeInterval minus = now - self.beginTime;
+    
+    self.recordTime_real = minus;
+    
+    NSLog(@"开始时间：%f. 结束时间：%f",self.beginTime, now);
+    
+    NSLog(@"时间差:%f,%f",minus,self.recordTime_real);
+    
+    if(self.recordTime_real < self.duration_Least) {
+        
+        if([self.delegate respondsToSelector:@selector(coreViewRecordIsTooShort)]){[self.delegate coreViewRecordIsTooShort];}
+        
+        NSLog(@"时间太短：%f",self.recordTime_real);
+        [self resetUI];
+        return;
+    }else {
+        
+        NSLog(@"时间够长：%f",self.recordTime_real);
+    }
+    
+    NSLog(@"%f",self.recordTime_real);
+    
+    self.isRecord = NO;
+    [self.timeLineView.layer removeAllAnimations];
+    self.timeLineView.hidden = YES;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"animationEnd" object:nil];
+    
+    if ([self.delegate respondsToSelector:@selector(coreView:didFinishRecordWithMOVFilePath:)])[self.delegate coreView:self didFinishRecordWithMOVFilePath:self.videoFilePath_MOV];
+}
+
+
+
+- (void)cancelRecord {
+    NSLog(@"cancelRecord");
+    [self resetUI];
+    
+    if ([self.delegate respondsToSelector:@selector(coreViewDidCancelRecord)])[self.delegate coreViewDidCancelRecord];
+}
+
+
+-(void)resetUI{
+    
+    self.beginTime = 0;
+    self.recordTime_real = 0;
+    self.isRecord = NO;
+    [self.timeLineView.layer removeAllAnimations];
+    self.timeLineView.hidden = YES;
+}
 
 -(void)layoutSubviews{
     
@@ -148,7 +219,9 @@
         }
     }];
     
-    if(!CGRectEqualToRect(self.timeLineView.frame, CGRectZero)) return;
+    
+    if (self.isRecord) return;
+    
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         CGFloat x = 0;
@@ -156,60 +229,43 @@
         CGFloat y = size.height - h;
         CGFloat w = size.width;
         CGRect frame = CGRectMake(x, y, w, h);
+        
         obj.frame = frame;
         [self bringSubviewToFront:obj];
     }];
 }
 
 
-- (void)finishRecord {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"animationEnd" object:nil];
-    
-    if ([self.delegate respondsToSelector:@selector(coreView:didFinishRecordWithMOVFilePath:)])[self.delegate coreView:self didFinishRecordWithMOVFilePath:self.videoFilePath_MOV];
-    
-}
-
-
-
-- (void)cancelRecord {
-    
-    if ([self.delegate respondsToSelector:@selector(coreViewDidCancelRecord)])[self.delegate coreViewDidCancelRecord];
-}
-
-
-
-
 -(NSString *)videoFilePath_MOV{
-
-    if(_videoFilePath_MOV == nil){
     
+    if(_videoFilePath_MOV == nil){
+        
         _videoFilePath_MOV = [self.CoreVideoCacheFolderPath stringByAppendingPathComponent:@"video.mov"];
-   
+        
     }
-   
+    
     return _videoFilePath_MOV;
 }
 
 
 -(NSString *)videoFilePath_MP4{
-
-    if(_videoFilePath_MP4 == nil){
     
+    if(_videoFilePath_MP4 == nil){
+        
         _videoFilePath_MP4 = [self.CoreVideoCacheFolderPath stringByAppendingPathComponent:@"video.mp4"];
     }
-
+    
     return _videoFilePath_MP4;
-
+    
 }
 
 
 -(CoreVideoModel *)videoModel{
-
-    if(_videoModel == nil){
     
+    if(_videoModel == nil){
+        
         _videoModel = [CoreVideoModel new];
-
+        
     }
     
     return _videoModel;
@@ -218,9 +274,9 @@
 
 
 -(NSString *)CoreVideoCacheFolderPath{
-
-    if(_CoreVideoCacheFolderPath == nil){
     
+    if(_CoreVideoCacheFolderPath == nil){
+        
         _CoreVideoCacheFolderPath = [[NSString cachesFolder] createSubFolder:@"CoreVideo"];
     }
     
@@ -230,7 +286,7 @@
 
 /** 删除缓存 */
 -(NSError *)deleteCaches{
-
+    
     return [self.CoreVideoCacheFolderPath deleteFileOrFloder];
 }
 
@@ -238,7 +294,7 @@
 
 /** 删除MOV */
 -(NSError *)deleteMOVFile{
-
+    
     return [self.videoFilePath_MOV deleteFileOrFloder];
 }
 
@@ -246,14 +302,14 @@
 
 /** 删除MP4 */
 -(NSError *)deleteMP4File{
-
+    
     return [self.videoFilePath_MP4 deleteFileOrFloder];
 }
 
 
--(void)convertMP4WithCompleteBlock:(void (^)(NSString *))completeBlock{
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)),dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+-(void)convertMP4WithCompleteBlock:(void(^)(NSString *mp4FilePath))completeBlock errorBlock:(void(^)())errorBlock{
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)),dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
@@ -276,38 +332,42 @@
                                 
                             case AVAssetExportSessionStatusUnknown:
                                 NSLog(@"AVAssetExportSessionStatusUnknown");
+                                if(errorBlock != nil) errorBlock();
                                 break;
                                 
                             case AVAssetExportSessionStatusWaiting:
                                 NSLog(@"AVAssetExportSessionStatusWaiting");
+                                if(errorBlock != nil) errorBlock();
                                 break;
                                 
                             case AVAssetExportSessionStatusExporting:
                                 NSLog(@"AVAssetExportSessionStatusExporting");
+                                if(errorBlock != nil) errorBlock();
                                 break;
                                 
                             case AVAssetExportSessionStatusFailed:
                                 NSLog(@"AVAssetExportSessionStatusFailed error:%@", exportSession.error.localizedDescription);
-                                
-                                
+                                if(errorBlock != nil) errorBlock();
                                 break;
                                 
                             case AVAssetExportSessionStatusCompleted:
                                 
-                                //删除MOV高清文件
-                                [self.videoFilePath_MOV deleteFileOrFloder];
-                                
                                 if(completeBlock != nil) completeBlock(self.videoFilePath_MP4);
+                                
+                                //删除MOV高清文件
+                                [self deleteMOVFile];
+                                
                                 break;
                                 
                             default:
+                                if(errorBlock != nil) errorBlock();
                                 break;
                         }
                     }];
                 }
             });
         });
-
+        
     });
 }
 
@@ -315,20 +375,20 @@
 
 /** 准备 */
 -(void)prepare{
-
+    
     [self.videoModel setRecVideoAndVideoPreviewLayer:self];
 }
 
 
 /** MOV文件大小 */
 -(CGFloat)getVideoFileSize_MOV{
-
+    
     return [self getFileSize:self.videoFilePath_MOV];
 }
 
 /** MP4文件大小 */
 -(CGFloat)getVideoFileSize_MP4{
-
+    
     return [self getFileSize:self.videoFilePath_MP4];
 }
 

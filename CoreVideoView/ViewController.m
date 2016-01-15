@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     [self.videoView prepare];
-    self.videoView.duration = 8;
+
     self.videoView.delegate = self;
 }
 
@@ -77,6 +77,8 @@
                 self.imageV.image = coreView.getVideoImage_MP4;
             });
         }
+    } errorBlock:^{
+        
     }];
 }
 
