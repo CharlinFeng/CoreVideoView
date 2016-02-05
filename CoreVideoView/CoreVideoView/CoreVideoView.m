@@ -192,7 +192,7 @@
 - (void)cancelRecord {
     NSLog(@"cancelRecord");
     [self resetUI];
-    
+    if(!self.isRecord){return;}
     if ([self.delegate respondsToSelector:@selector(coreViewDidCancelRecord)])[self.delegate coreViewDidCancelRecord];
 }
 
